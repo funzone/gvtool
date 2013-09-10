@@ -10,7 +10,7 @@ GVTool = {
     var stage = $(GVTool.stage_selector);
     var table = $('<table />');
     stage.append(table);
-    for (var f=0; f<=12; f++) {
+    for (var f=0; f<=22; f++) {
       var row = $("<tr />");
       for (var s=6; s>0; s--) {
         var id = ("f"+f)+("s"+s);
