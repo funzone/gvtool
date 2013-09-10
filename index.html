@@ -3,6 +3,7 @@
   <head>
     <title>GVTool</title>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="js/gvtool.js"></script>
     <style type="text/css">
       table tr {
         background-color: black;
@@ -18,32 +19,6 @@
   <body>
     <div id="g-stage"></div>
 <script>
-
-  GVTool = {
-    stage_selector: "#g-stage",
-
-    start: function () {
-      console.log('yo');
-      GVTool.createBoard();
-    },
-
-    createBoard: function () {
-      var stage = $(GVTool.stage_selector);
-      var table = $('<table />');
-      stage.append(table);
-      for (var f=0; f<=12; f++) {
-        var row = $("<tr />");
-        for (var s=6; s>0; s--) {
-          var id = ("f"+f)+("s"+s);
-          var cell = $('<td> ---&nbsp; </td>');
-          cell.attr('id', id);
-          row.append(cell);
-          console.log("id: #"+id);
-        }
-        table.append(row);
-      }
-    }
-  };
 
   $(GVTool.start);
 
