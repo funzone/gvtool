@@ -20,6 +20,7 @@ GVTool = {
     console.log('yo');
    // GVTool.extendScaleLibrary();
     GVTool.createBoard();
+    GVTool.buttonClickListener();
   },
 
   createBoard: function () {
@@ -62,6 +63,7 @@ GVTool = {
   },
 
   highlightScale: function(key, scale, degree_colors) {
+    GVTool.clearAllNotes();
     if ((typeof degree_colors) == 'undefined')
       degree_colors = GVTool.default_degree_colors;
     var tones = GVTool.scale(key, scale);
@@ -79,6 +81,14 @@ GVTool = {
     }
   },
 
+  clearAllNotes: function() {
+    for (var fret=0; fret<=22; fret++) {
+      for (var string=6; string>0; string--) {
+          GVTool.cellAtFret(fret, string).css('background-color', '#ffffff');
+      }
+    }
+  },
+
   cellAtFret: function(fret, string) {
     return $("#" + ("f" + fret) + ("s" + string));
   },
@@ -91,6 +101,14 @@ GVTool = {
     return Music.getScaleTones(key_value, scale_array);
   },
 
+  buttonClickListener: function () {
+    $("#go-bitch").on('click', function () {
+      var key = $("input#input_scale_key").val();
+      var scale = $("input#input_scale_name").val();
+      GVTool.highlightScale(key, scale);
+
+    });
+  },
   extendScaleLibrary: function () {
     var scales = Vex.Flow.Music.scales;
     scales.ionian = scales.major;
