@@ -154,6 +154,7 @@ GVTool = {
         $("#scale_accidental").val();
       var scale = $("#scale_name").val();
       GVTool.highlightScale(key, scale);
+      return false;
     });
 
     $('.preset').on('click', function() {
@@ -171,6 +172,7 @@ GVTool = {
           break;
       }
       GVTool.setDegreesToDisplay(array_to_set);
+      return false;
     });
   },
 
