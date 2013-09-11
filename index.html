@@ -10,27 +10,82 @@
 
   <body>
   <div id="gv-stage"></div>
-  <canvas width="700" height="100"></canvas>
-  <script>
-    $(GVTool.start);
-    //GVTool.highlightScale('c', 'major');
-  </script>
+
+  <script>$(GVTool.start);</script>
 
   <div id="controls">
-    <input type="text" id="input_scale_key" value="c" placeholder="Scale Key... (e.g. C, D#...)"/>
-    <br>
-    <input type="text" id="input_scale_name" value="minor" placeholder="Scale Name... (e.g. major)"/>
-    <button id="go-bitch">Do this bitch!</button>
-    <table id="color-key">
-      <tr><th></th><th>Key</th></tr>
-      <tr><th>1 </th><td id="k0"></td></tr>
-      <tr><th>2 </th><td id="k1"></td></tr>
-      <tr><th>3 </th><td id="k2"></td></tr>
-      <tr><th>4 </th><td id="k3"></td></tr>
-      <tr><th>5 </th><td id="k4"></td></tr>
-      <tr><th>6 </th><td id="k5"></td></tr>
-      <tr><th>7 </th><td id="k6"></td></tr>
-    </table>
+    <form action="#">
+      <div>
+
+        <select id="scale_key">
+          <option value="a">A</option>
+          <option value="b">B</option>
+          <option value="c">C</option>
+          <option value="d">D</option>
+          <option value="e">E</option>
+          <option value="f">F</option>
+          <option value="g">G</option>
+        </select>
+
+        <select id="scale_accidental">
+          <option value="">natural</option>
+          <option value="b">flat</option>
+          <option value="#">sharp</option>
+          <option value="bb">double flat</option>
+          <option value="##">double sharp</option>
+        </select>
+
+      </div>
+      <div>
+
+        <select id="scale_name">
+          <option value="lydian">Lydian</option>
+          <option value="ionian">Ionian (Major)</option>
+          <option value="mixolydian">Mixolydian (Dominant)</option>
+          <option value="dorian">Dorian</option>
+          <option value="aeolian">Aeolian (Natural Minor)</option>
+          <option value="phrygian">Phrygian</option>
+          <option value="locrian">Locrian</option>
+
+          <option value="melodic_minor">Melodic Minor</option>
+          <option value="dorian_flat9">Dorian b9</option>
+          <option value="lydian_augmented">Lydian Augmented</option>
+          <option value="lydian_dominant">Lydian Dominant</option>
+          <option value="mixolydian_flat6">Mixolydian b6</option>
+          <option value="locrian_natural2">Locrian natural 2</option>
+          <option value="locrian_flat4">Locrian b4 (altered)</option>
+
+          <option value="harmonic_minor">Harmonic Minor</option>
+          <option value="locrian_sharp6">Locrian #6</option>
+          <option value="ionian_augmented">Ionian Augmented</option>
+          <option value="dorian_sharp4">Dorian #4</option>
+          <option value="phrygian_dominant">Phrygian Dominant</option>
+          <option value="lydian_sharp2">Lydian #2</option>
+          <option value="ultralocrian">Locrian bb7</option>
+
+        </select>
+
+      </div>
+
+      <div><button id="go-button">Do this bitch!</button></div>
+
+      <table id="color-key">
+        <tr><th></th><th>Legend</th></tr>
+        <tr><th>1 </th><td id="k0"></td><th><input type="checkbox" id="display-0"></th></tr>
+        <tr><th>2 </th><td id="k1"></td><th><input type="checkbox" id="display-1"></th></tr>
+        <tr><th>3 </th><td id="k2"></td><th><input type="checkbox" id="display-2"></th></tr>
+        <tr><th>4 </th><td id="k3"></td><th><input type="checkbox" id="display-3"></th></tr>
+        <tr><th>5 </th><td id="k4"></td><th><input type="checkbox" id="display-4"></th></tr>
+        <tr><th>6 </th><td id="k5"></td><th><input type="checkbox" id="display-5"></th></tr>
+        <tr><th>7 </th><td id="k6"></td><th><input type="checkbox" id="display-6"></th></tr>
+      </table>
+
+      <div><button class="preset" data-preset-type="triad">Triad</button></div>
+      <div><button class="preset" data-preset-type="seventh">Seventh</button></div>
+      <div><button class="preset" data-preset-type="rootless">Rootless Seventh</button></div>
+      <div><button class="preset" data-preset-type="scale">Full Scale</button></div>
+
+    </form>
   </div>
   </body>
 </html>

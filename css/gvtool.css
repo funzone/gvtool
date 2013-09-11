@@ -1,9 +1,10 @@
 #controls {
-   width: 400px;
+    width: 200px;
+    margin-left: 100px;
     float: left;
 }
 #gv-stage {
-    width: 400px;
+    width: 200px;
     float: left;
 }
 
@@ -36,5 +37,21 @@
 }
 
 #color-key td {
-    width: 100px;
+    width: 120px;
+}
+
+button, #scale_key, #scale_accidental, #scale_name {
+    margin-top: 5px;
+}
+button {
+    width: 160px;
+}
+#scale_key {
+    width: 40px;
+}
+#scale_accidental {
+    width: 115px;
+}
+#scale_name {
+    widtH: 160px;
 }
