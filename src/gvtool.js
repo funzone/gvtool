@@ -8,18 +8,19 @@ GVTool = {
   default_degree_colors: {
     // Roy G. Biv
     0: 'red',
-    1: 'orange',
-    2: 'yellow',
-    3: 'green',
-    4: 'blue',
+    1: 'brown',
+    2: 'blue',
+    3: 'yellow',
+    4: 'orange',
     5: 'indigo',
-    6: 'violet'
+    6: 'green'
   },
 
   start: function () {
     console.log('yo');
    // GVTool.extendScaleLibrary();
     GVTool.createBoard();
+    GVTool.fillKeyTable();
     GVTool.buttonClickListener();
   },
 
@@ -28,7 +29,7 @@ GVTool = {
     var table = $('<table />');
     stage.append(table);
     for (var fret=0; fret<=22; fret++) {
-      var row = $("<tr />");
+      row = $("<tr><th>"+fret+"</th></tr>");
       for (var string=6; string>0; string--) {
         var id = ("f"+fret)+("s"+string);
         var cell = $('<td />');
@@ -68,7 +69,8 @@ GVTool = {
       degree_colors = GVTool.default_degree_colors;
     var tones = GVTool.scale(key, scale);
     for (var deg = 0; deg < tones.length; deg++) {
-      GVTool.highlightAllNotes(tones[deg], degree_colors[deg]);
+      if (deg==0 || deg==2 || deg==4 || deg==6)
+        GVTool.highlightAllNotes(tones[deg], degree_colors[deg]);
     }
   },
 
@@ -109,6 +111,20 @@ GVTool = {
 
     });
   },
+
+
+  fillKeyTable: function (degree_colors) {
+    if ((typeof degree_colors) == 'undefined')
+      degree_colors = GVTool.default_degree_colors;
+
+
+    for (var i = 0; i < 7; i++) {
+      $("#k"+i).css('background-color', degree_colors[i]);
+      console.log("#k"+i, degree_colors[i]);
+    }
+  },
+
+
   extendScaleLibrary: function () {
     var scales = Vex.Flow.Music.scales;
     scales.ionian = scales.major;

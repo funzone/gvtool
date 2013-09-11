@@ -7,9 +7,15 @@
     float: left;
 }
 
-#gv-stage table td {
+#gv-stage table td,
+#gv-stage table th {
     font-family: monospace;
+    font-size: 10px;
 }
+#gv-stage table th {
+    padding-right: 5px;
+}
+
 
 #gv-stage table {
     border-collapse: collapse;
@@ -27,4 +33,8 @@
 
 #gv-stage tr:first-child td {
     border: solid 2px #fff;
+}
+
+#color-key td {
+    width: 100px;
 }
