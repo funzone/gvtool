@@ -105,8 +105,8 @@ GVTool = {
 
   buttonClickListener: function () {
     $("#go-bitch").on('click', function () {
-      var key = $("input#input_scale_key").val();
-      var scale = $("input#input_scale_name").val();
+      var key = $("input#input_scale_key").val().toLowerCase();
+      var scale = $("input#input_scale_name").val().toLowerCase();
       GVTool.highlightScale(key, scale);
 
     });
