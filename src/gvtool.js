@@ -17,8 +17,7 @@ GVTool = {
   },
 
   start: function () {
-    console.log('yo');
-   // GVTool.extendScaleLibrary();
+    GVTool.extendScaleLibrary();
     GVTool.createBoard();
     GVTool.fillKeyTable();
     GVTool.buttonClickListener();
@@ -51,9 +50,14 @@ GVTool = {
 
 
 
+
+
+
   stringToNoteValue: function(string) {
     return Music.getNoteValue(GVTool.stringToNote(string));
   },
+
+
 
 
 
@@ -62,6 +66,12 @@ GVTool = {
     var string_value = Music.getNoteValue(GVTool.stringToNote(string));
     return (string_value + fret) % 12;
   },
+
+
+
+
+
+
 
   highlightScale: function(key, scale, degree_colors) {
     GVTool.clearAllNotes();
@@ -74,6 +84,12 @@ GVTool = {
     }
   },
 
+
+
+
+
+
+
   highlightAllNotes: function(note_value, color) {
     for (var fret=0; fret<=22; fret++) {
       for (var string=6; string>0; string--) {
@@ -83,6 +99,12 @@ GVTool = {
     }
   },
 
+
+
+
+
+
+
   clearAllNotes: function() {
     for (var fret=0; fret<=22; fret++) {
       for (var string=6; string>0; string--) {
@@ -91,9 +113,20 @@ GVTool = {
     }
   },
 
+
+
+
+
+
+
+
   cellAtFret: function(fret, string) {
     return $("#" + ("f" + fret) + ("s" + string));
   },
+
+
+
+
 
 
   scale: function(key, scale) {
@@ -103,21 +136,24 @@ GVTool = {
     return Music.getScaleTones(key_value, scale_array);
   },
 
+
+
+
+
   buttonClickListener: function () {
     $("#go-bitch").on('click', function () {
       var key = $("input#input_scale_key").val().toLowerCase();
       var scale = $("input#input_scale_name").val().toLowerCase();
       GVTool.highlightScale(key, scale);
-
     });
   },
+
+
 
 
   fillKeyTable: function (degree_colors) {
     if ((typeof degree_colors) == 'undefined')
       degree_colors = GVTool.default_degree_colors;
-
-
     for (var i = 0; i < 7; i++) {
       $("#k"+i).css('background-color', degree_colors[i]);
       console.log("#k"+i, degree_colors[i]);
