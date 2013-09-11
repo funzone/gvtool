@@ -27,11 +27,19 @@ GVTool = {
   ],
 
   start: function () {
-    GVTool.extendScaleLibrary();
+    GVTool.createScaleLibrary();
     GVTool.createBoard();
     GVTool.fillKeyTable();
-    //GVTool.setDegreesToDisplay();
     GVTool.buttonClickListener();
+
+    var set_options = false;
+
+    for (var i=0; (!set_options) && i < GVTool.degrees_to_display.length; i++)
+      set_options = $("#display-"+i).prop("checked");
+    console.log("i", i);
+    if (!set_options)
+      GVTool.setDegreesToDisplay();
+
   },
 
   createBoard: function () {
@@ -190,7 +198,7 @@ GVTool = {
 
 
 
-  extendScaleLibrary: function () {
+  createScaleLibrary: function () {
     var scales = Vex.Flow.Music.scales;
     scales.ionian = [2, 2, 1, 2, 2, 2, 1];
     scales.dorian = [2, 1, 2, 2, 2, 1, 2];
@@ -207,7 +215,6 @@ GVTool = {
     scales.mixolydian_flat6 = [2, 2, 1, 2, 1, 2, 2];
     scales.locrian_natural2 = [2, 1, 2, 1, 2, 2, 2];
     scales.locrian_flat4 = [1, 2, 1, 2, 2, 2, 2];
-
 
     scales.harmonic_minor = [2, 1, 2, 2, 1, 3, 1];
     scales.locrian_sharp6 = [1, 2, 2, 1, 3, 1, 2];
