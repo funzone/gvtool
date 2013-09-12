@@ -13,7 +13,7 @@ GVTool = {
     3: 'yellow',
     4: 'orange',
     5: 'indigo',
-    6: 'green'
+    6: "#0a0"
   },
 
   degrees_to_display: [
@@ -36,7 +36,6 @@ GVTool = {
 
     for (var i=0; (!set_options) && i < GVTool.degrees_to_display.length; i++)
       set_options = $("#display-"+i).prop("checked");
-    console.log("i", i);
     if (!set_options)
       GVTool.setDegreesToDisplay();
 
@@ -167,20 +166,26 @@ GVTool = {
 
     $('.preset').on('click', function() {
       var preset_type = $(this).data('preset-type');
-      var array_to_set = [true, true, true, true, true, true, true];
+      var array_to_set = [1, 1, 1, 1, 1, 1, 1];
       switch (preset_type) {
         case 'triad':
-          array_to_set = [true, false, true, false, true, false, false];
+          array_to_set = [1, 0, 1, 0, 1, 0, 0];
           break;
         case 'seventh':
-          array_to_set = [true, false, true, false, true, false, true];
+          array_to_set = [1, 0, 1, 0, 1, 0, 1];
+          break;
+        case 'three_seven':
+          array_to_set = [0, 0, 1, 0, 0, 0, 1];
+          break;
+        case 'seven_nofive':
+          array_to_set = [1, 0, 1, 0, 0, 0, 1];
           break;
         case 'rootless':
-          array_to_set = [false, false, true, false, true, false, true];
+          array_to_set = [0, 0, 1, 0, 1, 0, 1];
           break;
       }
       GVTool.setDegreesToDisplay(array_to_set);
-      return false;
+      return 0;
     });
   },
 
