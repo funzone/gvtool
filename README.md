@@ -3,7 +3,7 @@ gvtool
 
 Guitar Scale and Arpeggio Visualizer
 
-Currently in Prototyping
+Currently in Prototyping (<a href="http://htmlpreview.github.io/?https://github.com/mylez/gvtool/blob/master/index.html">Here</a>'s a sample</a>
 
 Things to come:
 * Horizontal Guitar Neck
