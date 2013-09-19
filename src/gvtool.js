@@ -1,3 +1,9 @@
+/**
+ * GVTool, to improve your knowledge of the fretboard by matching interval sound with color & stuff
+ * 
+ * 2012 Miles Smith
+ **/
+
 // todo: get rid of this stupid shit, you don't need Vex at all
 Music = new Vex.Flow.Music();
 
