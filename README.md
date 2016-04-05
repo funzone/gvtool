@@ -10,3 +10,4 @@ Things to come:
 * More Customizable Scales (Pentatonics, Hexatonics, etc...)
 * Chord Shaper
 * Better Looking Interface
+
